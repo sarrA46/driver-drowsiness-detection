@@ -3,13 +3,16 @@
 A real-time driver drowsiness detection system using computer vision and Arduino.
 
 ## 🛠️ Technologies
+<img width="704" height="404" alt="shematic capture" src="https://github.com/user-attachments/assets/da25259e-5843-4f33-a168-05629215c24d" />
+
 - Python
 - OpenCV
 - Dlib
 - Arduino
 - SciPy
 - PySerial
-<img width="704" height="404" alt="shematic capture" src="https://github.com/user-attachments/assets/da25259e-5843-4f33-a168-05629215c24d" />
+- Virtual Serial Port (COM3) – Serial communication between Python and Arduino
+<img width="588" height="440" alt="Capture d&#39;écran 2026-11-21 145425" src="https://github.com/user-attachments/assets/ecfc76a0-799e-49a1-b695-f9ecc004e079" />
 
 
 ## ⚙️ Features
