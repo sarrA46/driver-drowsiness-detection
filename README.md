@@ -47,7 +47,7 @@ When drowsiness is detected, an Arduino automatically activates an alert system 
 6. Python sends a serial command to Arduino.
 7. Arduino activates the appropriate alerts.
 
-![Uploading Capture d'écran 2026-11-21 185800.png…]()
+<img width="335" height="199" alt="Capture d&#39;écran 2026-11-21 185800" src="https://github.com/user-attachments/assets/ece169da-177c-4172-b268-2e076aa2b36a" />
 
 ## 👁️ Eye Aspect Ratio (EAR)
 
