@@ -1,56 +1,148 @@
-# Driver Drowsiness Detection System 🚗
 
-A real-time driver drowsiness detection system using computer vision and Arduino.
-
-## 🛠️ Technologies
 <img width="704" height="404" alt="shematic capture" src="https://github.com/user-attachments/assets/da25259e-5843-4f33-a168-05629215c24d" />
 
+# Driver Drowsiness Detection System 🚗
+
+## 📌 Project Overview
+
+This project aims to develop an intelligent Driver Drowsiness Detection System using Computer Vision and Embedded Systems.
+
+The system monitors the driver's eyes in real time through a webcam using Python, OpenCV and Dlib. It calculates the Eye Aspect Ratio (EAR) to detect prolonged eye closure, which may indicate driver fatigue or drowsiness.
+
+When drowsiness is detected, an Arduino automatically activates an alert system consisting of an RGB LED, a buzzer and a DC motor.
+
+## 🎯 Objectives
+
+- Detect driver drowsiness in real time.
+- Monitor eye movements using facial landmarks.
+- Calculate the Eye Aspect Ratio (EAR).
+- Send detection signals from Python to Arduino.
+- Activate audio and visual alerts.
+- Control a motor according to the driver's alertness state.
+
+## 🛠️ Technologies Used
+
+**Software:**
 - Python
 - OpenCV
 - Dlib
-- Arduino
+- NumPy
 - SciPy
+- Imutils
 - PySerial
-- Virtual Serial Port (COM3) – Serial communication between Python and Arduino
-<img width="588" height="440" alt="Capture d&#39;écran 2026-11-21 145425" src="https://github.com/user-attachments/assets/ecfc76a0-799e-49a1-b695-f9ecc004e079" />
 
-
-## ⚙️ Features
-- Real-time face and eye detection.
-- Eye Aspect Ratio (EAR) calculation.
-- Detection of prolonged eye closure.
-- Arduino communication via serial port.
-- Automatic alert using RGB LED, relay, and motor.
-
-## 🔧 Hardware
-- Arduino
+**Hardware:**
+- Arduino UNO
 - Webcam
-- RGB LED (Common Anode)
+- RGB LED
 - Buzzer
-- Relay
 - DC Motor
 
-## 🚀 How It Works
-1. The camera captures the driver's face.
-2. Python detects facial landmarks and calculates the EAR.
-3. If the eyes remain closed, an alert is triggered.
-4. Arduino receives the signal and activates the alert system.
+## ⚙️ System Architecture
 
-## ▶️ Installation
+1. The webcam captures the driver's face.
+2. Dlib detects facial landmarks.
+3. The system extracts eye coordinates.
+4. The Eye Aspect Ratio (EAR) is calculated.
+5. If the eyes remain closed for a predefined number of consecutive frames, drowsiness is detected.
+6. Python sends a serial command to Arduino.
+7. Arduino activates the appropriate alerts.
 
-Install the required Python libraries:
+## 👁️ Eye Aspect Ratio (EAR)
 
-```bash
-pip install opencv-python dlib scipy pyserial
+The Eye Aspect Ratio is used to estimate whether the driver's eyes are open or closed.
+
+EAR is calculated using the following formula:
+
+EAR = (||P2-P6|| + ||P3-P5||) / (2 × ||P1-P4||)
+
+When the EAR value falls below a predefined threshold for a certain number of consecutive frames, the system detects possible drowsiness.
+
+## 🚨 Alert Mechanism
+
+| System State | RGB LED | Buzzer | Motor |
+|---|---|---|---|
+| Normal | Green | OFF | ON |
+| Drowsiness detected (first 3 seconds) | Orange | Intermittent | ON |
+| Prolonged drowsiness | Red | ON | OFF |
+
+## 📂 Project Structure
+
+```text
+Driver-Drowsiness-Detection-System/
+│
+├── python/
+│   └── drowsiness_detection.py
+├── arduino/
+│   └── drowsiness_alert.ino
+├── images/
+├── requirements.txt
+├── .gitignore
+├── LICENSE
+└── README.md
 ```
 
-Download the `shape_predictor_68_face_landmarks.dat` file and place it in the project directory.
+## 💻 Installation and Setup
 
-Run the Python script:
+### 1. Clone the repository
 
 ```bash
-python main.py
+git clone https://github.com/YOUR_USERNAME/Driver-Drowsiness-Detection-System.git
 ```
+
+### 2. Install Python dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Download the Dlib facial landmarks model
+
+Download `shape_predictor_68_face_landmarks.dat` and place it in the project directory.
+
+The model is required for facial landmark detection.
+
+### 4. Configure Arduino
+
+- Open `arduino/drowsiness_alert.ino` in Arduino IDE.
+- Connect the Arduino UNO.
+- Select the correct COM port.
+- Upload the program.
+
+### 5. Run the Python application
+
+Configure the Arduino serial port and the facial landmarks model path in the Python script.
+
+Then execute:
+
+```bash
+python python/drowsiness_detection.py
+```
+
+## 📦 Python Dependencies
+
+- opencv-python
+- dlib
+- numpy
+- scipy
+- imutils
+- pyserial
+
+## 🔮 Future Improvements
+
+- Integrate facial yawning detection.
+- Add head pose estimation.
+- Develop a graphical user interface.
+- Integrate GPS and IoT monitoring.
+- Send remote notifications in case of detected drowsiness.
+- Improve detection accuracy under different lighting conditions.
 
 ## 👩‍💻 Author
-Developed as an embedded systems and computer vision project.
+
+**Your Name**
+
+Embedded Systems & IoT Student
+
+## 📄 License
+
+This project is licensed under the MIT License.
