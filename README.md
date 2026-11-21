@@ -46,8 +46,8 @@ When drowsiness is detected, an Arduino automatically activates an alert system 
 5. If the eyes remain closed for a predefined number of consecutive frames, drowsiness is detected.
 6. Python sends a serial command to Arduino.
 7. Arduino activates the appropriate alerts.
-<img width="704" height="404" alt="shematic capture" src="https://github.com/user-attachments/assets/da25259e-5843-4f33-a168-05629215c24d" />
 
+![Uploading Capture d'écran 2026-11-21 185800.png…]()
 
 ## 👁️ Eye Aspect Ratio (EAR)
 
@@ -82,6 +82,7 @@ Driver-Drowsiness-Detection-System/
 
 └── README.md
 ```
+<img width="704" height="404" alt="shematic capture" src="https://github.com/user-attachments/assets/da25259e-5843-4f33-a168-05629215c24d" />
 
 ## 💻 Installation and Setup
 
